@@ -1,3 +1,5 @@
+
+/**Style du body**/
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -6,8 +8,261 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+/**
+*style "par défaut"
+*/
+p{
+  color:white;
+  font-weight: bold;
+  font-size: 45px;
+}
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+/**
+ * Pour que l'image soit responsive
+ */
+ img {
+	max-width: 100%;
+	height: auto;
+}
+
+/**
+ * Adaptation pour les grands écrans
+ */
+.container {
+	max-width: 100%;
+	padding: 20px;
+	margin: 0 auto;
+}
+
+/**
+ * Alignement adapté pour les boxes
+ */
+.main-header .container {
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+	flex-wrap: wrap;
+  background-color:#F1AD6E;
+  box-shadow: 30px 10px 10px #DF7979;
+}
+
+/**
+ * Style des listes et colonnes
+ */
+.main-nav ul {
+	margin: 1em 0 .5em;
+	text-align: center;
+}
+.main-nav li {
+	display: inline;
+}
+.main-nav a {
+	display: inline-block;
+	padding: .5em 1.5em;
+}
+
+/**
+ * Style du footer
+ */
+  footer {
+    width: 100%;
+    padding:40px 0;
+    position:absolute;
+    bottom:0;
+    box-shadow : 30px -10px 10px #DF7979;
+    background-color:#F1AD6E;
+    color:white;
+  }
+  
+/**
+ * Style des réseaux sociaux
+ */
+  footer .social {
+    text-align:center;
+    padding-bottom:25px;
+  }
+  footer .social > a {
+    font-size:24px;
+    width:40px;
+    height:40px;
+    line-height:40px;
+    display:inline-block;
+    text-align:center;
+    border-radius:50%;
+    border:1px solid white;
+    margin:0 8px;
+    color:inherit;
+    opacity:0.75;
+  } 
+  footer .social > a:hover {
+    opacity:0.9;
+  }
+
+/**
+ * Style du copyright
+ */
+  footer .copyright {
+    margin-top:15px;
+    text-align:center;
+    font-size:13px;
+    color:white;
+    margin-bottom:0;
+  }
+
+
+
+
+
+/*
+*création du bouton animé*
+*/
+  @import url('https://fonts.googleapis.com/css?family=Poppins:900i');
+
+* {
+  box-sizing: border-box;
+}
+
+.wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.cta {
+    display: flex;
+    padding: 10px 45px;
+    text-decoration: none;
+    font-family: 'Poppins', sans-serif;
+    font-size: 20px;
+    color: white;
+    background:  #DF7979;
+    transition: 1s;
+    box-shadow: 6px 6px 0 black;
+    transform: skewX(-15deg);
+}
+
+.cta:focus {
+   outline: none; 
+}
+
+.cta:hover {
+    transition: 0.5s;
+    box-shadow: 10px 10px 0 #6225E6;
+}
+
+.cta span:nth-child(2) {
+    transition: 0.5s;
+    margin-right: 0px;
+}
+
+.cta:hover  span:nth-child(2) {
+    transition: 0.5s;
+    margin-right: 45px;
+}
+
+  span {
+    transform: skewX(15deg) 
+  }
+
+  span:nth-child(2) {
+    width: 20px;
+    margin-left: 30px;
+    position: relative;
+    top: 12%;
+  }
+  
+/**************SVG****************/
+
+path.one {
+    transition: 0.4s;
+    transform: translateX(-60%);
+}
+
+path.two {
+    transition: 0.5s;
+    transform: translateX(-30%);
+}
+
+.cta:hover path.three {
+    animation: color_anim 1s infinite 0.2s;
+}
+
+.cta:hover path.one {
+    transform: translateX(0%);
+    animation: color_anim 1s infinite 0.6s;
+}
+
+.cta:hover path.two {
+    transform: translateX(0%);
+    animation: color_anim 1s infinite 0.4s;
+}
+
+/* SVG animations */
+
+@keyframes color_anim {
+    0% {
+        fill: white;
+    }
+    50% {
+        fill: #6225E6;
+    }
+    100% {
+        fill: white;
+    }
+}
+
+
+
+
+/**
+ * Création de l'animation du titre
+ */
+@keyframes tipsy {
+  0 {
+    transform: translateX(-50%) translateY(-50%) rotate(0deg);
+  }
+  100% {
+    transform: translateX(-50%) translateY(-50%) rotate(360deg);
+  }
+}
+
+
+b {
+  color: #fffbf1;
+  text-shadow: 0 20px 25px #2e2e31, 0 40px 60px #2e2e31;
+  font-size: 80px;
+  font-weight: bold;
+  text-decoration: none;
+  letter-spacing: -3px;
+  margin: 0;
+  position: relative;
+  transform: translateX(-50%) translateY(-50%);
+}
+
+b:before,
+b:after {
+  content: '';
+  padding: .9em .4em;
+  position: absolute;
+  left: 50%;
+  width: 100%;
+  top: 50%;
+  display: block;
+  border: 15px solid #DF7979;
+  transform: translateX(-50%) translateY(-50%) rotate(0deg);
+  animation: 10s infinite alternate ease-in-out tipsy;
+}
+
+b:before {
+  border-color: #DF7979 #DF7979 rgba(0, 0, 0, 0) rgba(0, 0, 0, 0);
+  z-index: -1;
+}
+
+b:after {
+  border-color: rgba(0, 0, 0, 0) rgba(0, 0, 0, 0) #DF7979 #DF7979;
+  box-shadow: 25px 25px 25px rgba(46, 46, 49, .8);
 }
