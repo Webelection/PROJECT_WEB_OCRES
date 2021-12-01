@@ -5,10 +5,10 @@ import logo from './logo.png';
 function Header() {
     return (
         <header className="main-header">
-            <div className="container">
-                <h1 className="mh-logo">
-                    <img src={logo} width="100" height="95" alt="Flexbox.ninja"></img>
-                </h1>
+            <div className="container1">
+                <div className="mh-logo">
+                    <img src={logo}  alt="Flexbox.ninja"></img>
+                </div>
                 <a href="/"><b target="_blank">Webelection</b></a>
 
                 <nav className="main-nav">

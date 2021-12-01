@@ -9,6 +9,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #FAEAD9;
 }
 /**
 *style "par défaut"
@@ -35,7 +36,7 @@ img {
 /**
  * Adaptation pour les grands écrans
  */
-.container {
+.container1 {
 	max-width: 100%;
 	padding: 20px;
 	margin: 0 auto;
@@ -44,13 +45,13 @@ img {
 /**
  * Alignement adapté pour les boxes
  */
-.main-header .container {
+.main-header .container1 {
 	display: flex;
 	align-items: center;
 	justify-content: space-around;
 	flex-wrap: wrap;
   background-color:#F1AD6E;
-  box-shadow: 30px 10px 10px #DF7979;
+  /*box-shadow: 30px 1px 10px #8B8A89;*/
 }
 
 /**
@@ -85,7 +86,7 @@ main h2{
     padding:40px 0;
     position:relative;
     bottom:0;
-    box-shadow : 30px -10px 10px #DF7979;
+    /*box-shadow : 30px -10px 10px #DF7979;*/
     background-color:#F1AD6E;
     color:white;
   }
@@ -111,7 +112,8 @@ main h2{
     opacity:0.75;
   } 
   footer .social > a:hover {
-    opacity:0.9;
+    color:#6225E6;
+    border:1px solid #6225E6;
   }
 
 /**
@@ -150,11 +152,11 @@ header a {
     padding: 10px 45px;
     text-decoration: none;
     font-family: 'Poppins', sans-serif;
-    font-size: 20px;
+    font-size: 15px;/*taille texte boutton*/
     color: white;
     background:  #DF7979;
     transition: 1s;
-    box-shadow: 6px 6px 0 black;
+    box-shadow: 6px 6px 0 #8B8A89;
     transform: skewX(-15deg);
 }
 
@@ -174,7 +176,7 @@ header a {
 
 .cta:hover  span:nth-child(2) {
     transition: 0.5s;
-    margin-right: 45px;
+    margin-right: 45px;/*agrandissament du bouton quand curseur dessus*/
 }
 
   span {
@@ -246,8 +248,8 @@ path.two {
 
 b {
   color: #fffbf1;
-  text-shadow: 0 20px 25px #2e2e31, 0 40px 60px #2e2e31;
-  font-size: 80px;
+  text-shadow: 0 20px 39px #2e2e31, 0 40px 90px #8B8A89;
+  font-size: 40px;
   font-weight: bold;
   text-decoration: none;
   letter-spacing: -3px;
@@ -265,7 +267,7 @@ b:after {
   width: 100%;
   top: 50%;
   display: block;
-  border: 15px solid #DF7979;
+  border: 8px solid #DF7979;
   transform: translateX(-50%) translateY(-50%) rotate(0deg);
   animation: 10s infinite alternate ease-in-out tipsy;
 }
@@ -277,7 +279,7 @@ b:before {
 
 b:after {
   border-color: rgba(0, 0, 0, 0) rgba(0, 0, 0, 0) #DF7979 #DF7979;
-  box-shadow: 25px 25px 25px rgba(46, 46, 49, .8);
+  box-shadow: 25px 25px 70px #8B8A89;
 }
 
 
@@ -294,7 +296,7 @@ b:after {
   align-items: center;
   justify-content: space-around;
   align-content: space-around;
-  background-color: white; /*Bleu*/
+  background-color: #FAEAD9; /*Bleu*/
   width: 100%;
   height: 400px;
   /*border: 2px solid blue;*/
@@ -312,48 +314,149 @@ b:after {
   flex: 1 1 50px;
   width: 100%;
   height: 100%;
-  background-color: #DF7979; 
-  border: 2px solid black;
+  background-color: white; 
+  border: 2px solid #DF7979;
   box-sizing: border-box;
   margin: 10px;
-  box-shadow: 2px 2px 2px black;
+  box-shadow: 5px 5px 5px #8B8A89;
 }
 
 .element-flexible-2{
   flex: 1 1 50px;
   width: 50%;
   height: 100%;
-  background-color: #DF7979; 
-  border: 2px solid black;
+  background-color: white; 
+  border: 2px solid #DF7979;
   box-sizing: border-box;
   margin: 10px;
-  box-shadow: 2px 2px 2px black;
+  box-shadow: 2px 2px 2px #8B8A89;
 }
 
 .element-flexible-3{
   flex: 1 1 50px;
   width: 25%;
   height: 100%;
-  background-color: #DF7979; 
-  border: 2px solid black;
+  background-color: white; 
+  border: 2px solid #DF7979;
   box-sizing: border-box;
   margin: 10px;
-  box-shadow: 2px 2px 2px black;
+  box-shadow: 2px 2px 2px #8B8A89;
 }
 
 .element-flexible-4{
   flex: 1 1 25%;
   width: auto;
   height: 100%;
-  background-color: #DF7979; 
-  border: 2px solid black;
+  background-color: white; 
+  border: 2px solid #DF7979;
   box-sizing: border-box;
   margin: 10px;
-  box-shadow: 2px 2px 2px black;
+  box-shadow: 2px 2px 2px #8B8A89;
+}
+
+
+/*CSS pour API chats*/
+
+.header__main{
+  background-color: black;
+  color: white;
+  height: 10vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cat__main{
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.cat__img{
+  max-height: 20%;
+  max-width: 20%;
+  margin:1rem;
+}
+
+.cat__btn{
+  padding: 1rem;
+  margin: 1rem;
 }
 
 
 
+@import url('https://fonts.googleapis.com/css?family=Lato:100&display=swap');
 
 
 
+.container {
+  width: 400px;
+  height: 400px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.center {
+  width: 16%;
+  height: 40px;
+  margin: 0% 42%;
+  position: absolute;
+}
+
+.btn {
+  width: 100%;
+  height: 100%;
+  cursor: pointer;/*forme du curseur*/
+  background: transparent;
+  border: 1px solid #6225E6;
+  outline: none;
+  transition: 1s ease-in-out;
+}
+
+/*svg {
+  position: absolute;
+  left: 0;
+  top: 0;
+  fill: none;
+  stroke: black;
+  stroke-dasharray: 150 480;
+  stroke-dashoffset: 150;
+  transition: 1s ease-in-out;
+}*/
+
+.btn:hover {
+  transition: 1s ease-in-out;/*temps du chamgement de couleur*/
+  background: #6225E6;/*#DF7979*//*#F1AD6E*/
+}
+
+/*
+Bordure de l'animation
+
+.btn:hover svg {
+  stroke-dashoffset: -480;
+}*/
+
+/*
+Ecriture
+*/
+.btn span {
+  color: black;
+  font-size: 18px;
+  font-weight: 100;
+}
+
+
+.mh-logo{
+  width:65px;
+  height:60px;
+  /*box-shadow: 2px 2px 5px #8B8A89;*/
+}
