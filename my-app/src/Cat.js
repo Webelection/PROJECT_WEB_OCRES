@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import './App.css'
+import './index.css'
 
 function Cat() {
     const [url, setUrl] = useState('')
@@ -19,21 +19,17 @@ function Cat() {
         })
     }
     return (
-        <div>
+        <div className="boite">
             <div className="cat__main">
                 <img src={url} className="cat__img" alt="Img not found"></img>
             </div>
-            <div classNameName="container" >
-                <div className="center">
-                    <button className="btn" onClick={fetch_data} alt="Image introuvable">
-                        <span>HOVER ME</span>
-                    </button>
-                </div>
+            <div className="center">
+                <button className="btn" onClick={fetch_data} alt="Image introuvable">
+                    <span>HOVER ME</span>
+                </button>
             </div>
         </div>
-
-
-    )
+    );
 }
 
 export default Cat
