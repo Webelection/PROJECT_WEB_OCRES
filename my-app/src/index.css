@@ -290,7 +290,7 @@ b:after {
 
 
 
-.conteneur-flexible{
+.conteneur-flexible-ligne{
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -310,61 +310,48 @@ b:after {
 /*  flex-direction: column; /*Axe principal = axe vertical*/
 /*}*/
 
-.element-flexible-1{
-  flex: 1 1 50px;
-  width: 100%;
+.conteneur-flexible-ligne > *{
   height: 100%;
   background-color: white; 
   border: 2px solid #DF7979;
   box-sizing: border-box;
   margin: 10px;
   box-shadow: 5px 5px 5px #8B8A89;
+  border-radius: 8px;
+}
+
+
+.element-flexible-1{
+  flex: 1 1 50px;
+  width: 100%;
 }
 
 .element-flexible-2{
   flex: 1 1 50px;
   width: 50%;
-  height: 100%;
-  background-color: white; 
-  border: 2px solid #DF7979;
-  box-sizing: border-box;
-  margin: 10px;
-  box-shadow: 2px 2px 2px #8B8A89;
 }
 
 .element-flexible-3{
   flex: 1 1 50px;
   width: 25%;
-  height: 100%;
-  background-color: white; 
-  border: 2px solid #DF7979;
-  box-sizing: border-box;
-  margin: 10px;
-  box-shadow: 2px 2px 2px #8B8A89;
 }
 
 .element-flexible-4{
   flex: 1 1 25%;
   width: auto;
-  height: 100%;
-  background-color: white; 
-  border: 2px solid #DF7979;
-  box-sizing: border-box;
-  margin: 10px;
-  box-shadow: 2px 2px 2px #8B8A89;
 }
 
 
 /*CSS pour API chats*/
 
 .cat__main{
-  height: 84%;
+  height: 70%;
   align-items: center;
 }
 
 .cat__img{
-  max-height: 90%;
-  max-width: 90%;
+  max-height: 70%;
+  max-width: 70%;
   margin:1rem;
 }
 
@@ -387,7 +374,7 @@ b:after {
   height: 100%;
   cursor: pointer;/*forme du curseur*/
   background: transparent;
-  border: 1px solid #6225E6;
+  border: 1px solid #DF7979;
   outline: none;
   transition: 1s ease-in-out;
 }
@@ -395,24 +382,166 @@ b:after {
 .btn:hover {
   transition: 1s ease-in-out;/*temps du chamgement de couleur*/
   background: #6225E6;/*#DF7979*//*#F1AD6E*/
+  border: 1px solid #6225E6;
+  /*ESSAYER DE METTRE LE TEXTE EN BLANC QUAND ON MET LE POINTEUR*/
 }
 
 /*
 Ecriture
 */
 .btn span {
-  color: white;
+  color:#DF7979;
   font-size: 1rem;
   font-weight: bold;
+}
+
+.btn:hover span{
+  transition: 1s ease-in-out;
+  color: white;
 }
 
 .boite {
   height: 100%;
 }
 
-.boite > div {
+.boite > * {
   width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
+}
+
+.boite > h2{
+  height: 12%;
+  color:#8B8A89;
+  padding:0px;
+  margin: 0px;
+  margin-top: 2%;
+  font-family: 'Slabo 27px', serif;
+  
+}
+
+.mh-logo{
+  width: 7%;
+  height: 10%;
+}
+
+
+
+
+
+/*
+CAROUSSEL
+*/
+.contCard {
+  position: absolute;
+  height: 75%;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  /*top: 60px;*/
+  /*left: calc(50% - 300px);*/
+  display: flex;
+}
+
+.card {
+  display: flex;
+  height: 280px;
+  width: 200px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: -1rem 0 3rem #000;
+/*   margin-left: -50px; */
+  transition: 0.4s ease-out;
+  position: relative;
+  left: 0px;
+}
+
+.card:not(:first-child) {
+    margin-left: -50px;
+}
+
+.card:hover {
+  transform: translateY(-20px);
+  transition: 0.4s ease-out;
+}
+
+.card:hover ~ .card {
+  position: relative;
+  left: 50px;
+  transition: 0.4s ease-out;
+}
+
+.titleCard {
+  color: #DF7979;
+  font-weight: bold;
+  position: absolute;
+  left: 20px;
+  top: 15px;
+}
+
+.card > h4 {
+  color: #F1AD6E;
+  font-weight: 300;
+  position: absolute;
+  left: 20px;
+  top: 45px;
+}
+
+.bar {
+  position: absolute;
+  top: 100px;
+  left: 20px;
+  height: 5px;
+  width: 150px;
+}
+
+.emptybar {
+  background-color: #8B8A89;
+  width: 100%;
+  height: 100%;
+}
+
+.filledbar {
+  position: absolute;
+  top: 0px;
+  z-index: 3;
+  width: 0px;
+  height: 100%;
+  background: rgb(0,154,217);
+  background: linear-gradient(90deg, #6225E6 0%, #DF7979 65%, #F1AD6E 100%);
+  transition: 0.6s ease-out;
+}
+
+.card:hover .filledbar {
+  width: 120px;
+  transition: 0.4s ease-out;
+}
+
+.circle {
+  position: absolute;
+  /*left: calc(50% - 60px);*/
+  align-items: center;
+  justify-content: center;
+  align-self: flex-end;
+}
+
+.stroke {
+  stroke: white;
+  stroke-dasharray: 360;
+  stroke-dashoffset: 360;
+  transition: 0.6s ease-out;
+}
+
+.card:hover .stroke {
+  stroke-dashoffset: 100;
+  transition: 0.6s ease-out;
+}
+.candidat{
+    width: 100%;
+    height: 100%;
+    border-radius: 0px 0px 10px 10px;
+    display: flex;
+    align-self: flex-end;
 }
