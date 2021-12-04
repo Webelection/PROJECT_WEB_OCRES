@@ -1,6 +1,7 @@
 import React from 'react';
 import './index.css';
 import Cat from './Cat';
+import Tweet from './Tweet';
 
 class Widget extends React.Component {
     /*constructor (props) {
@@ -44,7 +45,7 @@ class DashBoard extends React.Component {
 
                 <div className="conteneur-flexible ligne">
                     <div className="element-flexible-3"><Cat /></div>
-                    <div className="element-flexible-4"></div>
+                    <div className="element-flexible-4"><Tweet /></div>
                 </div>
 
                 <div className="conteneur-flexible ligne">
