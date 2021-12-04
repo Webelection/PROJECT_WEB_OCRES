@@ -17,6 +17,7 @@ function Cat() {
     }
     return (
         <div className="boite">
+            <h2>Un peu de douceur dans ce monde de brutes</h2>
             <div className="cat__main">
                 <img src={url} className="cat__img" alt="Img not found"></img>
             </div>

@@ -34,21 +34,21 @@ class DashBoard extends React.Component {
             <main>
                 <Widget />
 
-                <div className="conteneur-flexible ligne">
+                <div className="conteneur-flexible-ligne">
                     <div className="element-flexible-1"></div>
                 </div>
 
-                <div className="conteneur-flexible ligne">
+                <div className="conteneur-flexible-ligne">
                     <div className="element-flexible-2"></div>
                     <div className="element-flexible-2"></div>
                 </div>
 
-                <div className="conteneur-flexible ligne">
+                <div className="conteneur-flexible-ligne">
                     <div className="element-flexible-3"><Cat /></div>
                     <div className="element-flexible-4"><Tweet /></div>
                 </div>
 
-                <div className="conteneur-flexible ligne">
+                <div className="conteneur-flexible-ligne">
                     <div className="element-flexible-1"></div>
                 </div>
 
