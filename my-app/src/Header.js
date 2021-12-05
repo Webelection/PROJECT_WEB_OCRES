@@ -9,6 +9,7 @@ function Header() {
                 <div className="mh-logo">
                     <img src={logo}  alt="Flexbox.ninja"></img>
                 </div>
+
                 <a href="/"><b target="_blank">Webelection</b></a>
 
                 <nav className="main-nav">
