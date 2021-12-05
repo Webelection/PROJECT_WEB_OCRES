@@ -2,6 +2,7 @@ import React from 'react';
 import './index.css';
 import Cat from './Cat';
 import Tweet from './Tweet';
+import Candi from './Candi';
 
 class Widget extends React.Component {
     /*constructor (props) {
@@ -35,7 +36,10 @@ class DashBoard extends React.Component {
                 <Widget />
 
                 <div className="conteneur-flexible-ligne">
-                    <div className="element-flexible-1"></div>
+                    <div className="element-flexible-1">
+                        <h2>Les candidats à la présidentielle 2022</h2>
+                        <Candi />
+                    </div>
                 </div>
 
                 <div className="conteneur-flexible-ligne">

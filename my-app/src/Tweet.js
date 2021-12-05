@@ -5,7 +5,7 @@ class Tweet extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            reponse:""
+            reponse:[]
         };
     }
 
@@ -17,7 +17,6 @@ class Tweet extends React.Component {
             });
     }
 
-
     UNSAFE_componentWillMount() {
         this.callAPI();
     }
@@ -25,17 +24,12 @@ class Tweet extends React.Component {
     render() {
         if(this.state.reponse) {
             const data = this.state.reponse.slice();
-            const tweet = data[0];
-            console.log('tweet : ' + tweet);
-            const auteur = tweet.auteur;
-            const texte = tweet.texte;
-            const heure = tweet.heure;
 
             return(
                 <div>
-                    <h4 className = "tweet_a"> {auteur} </h4>
-                    <p className = "tweet_t"> {texte} </p>
-                    <p className = "tweet_h"> {heure} </p>
+                    {data.map(tweet => (
+                            <img className="tweet" src={tweet.photo} alt="Img not found"></img>
+                    ))}
                 </div>
             );
         }

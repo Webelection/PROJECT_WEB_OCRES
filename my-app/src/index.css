@@ -26,14 +26,6 @@ code {
 }
 
 /**
- * Pour que l'image soit responsive
- */
-img {
-	max-width: 100%;
-	height: auto;
-}
-
-/**
  * Adaptation pour les grands écrans
  */
 .container1 {
@@ -57,6 +49,10 @@ img {
 /**
  * Style des listes et colonnes
  */
+.main-nav{
+  width: 35%;
+}
+
 .main-nav ul {
 	margin: 1em 0 .5em;
 	text-align: center;
@@ -71,11 +67,6 @@ img {
 
 main {
   min-height: 300px;
-}
-
-main h2{
-  padding: 30px 10px;
-  text-align: center;
 }
 
 /**
@@ -326,6 +317,15 @@ b:after {
   width: 100%;
 }
 
+.element-flexible-1 > h2{
+  margin: 0px;
+  padding: 15px;
+  font-family: 'Slabo 27px', serif;
+  height: 12%;
+  color:#8B8A89;
+  text-align: center;
+}
+
 .element-flexible-2{
   flex: 1 1 50px;
   width: 50%;
@@ -414,34 +414,22 @@ Ecriture
 .boite > h2{
   height: 12%;
   color:#8B8A89;
-  padding:0px;
+  text-align: center;
+  padding-top: 35px;
   margin: 0px;
-  margin-top: 2%;
   font-family: 'Slabo 27px', serif;
-  
 }
-
-.mh-logo{
-  width: 7%;
-  height: 10%;
-}
-
-
-
-
 
 /*
 CAROUSSEL
 */
 .contCard {
-  position: absolute;
-  height: 75%;
-  width: 100%;
+  height: 88%;
+  width: 90%;
+  margin: 0% 5%;
   align-items: center;
   justify-content: center;
   background-color: white;
-  /*top: 60px;*/
-  /*left: calc(50% - 300px);*/
   display: flex;
 }
 
@@ -477,7 +465,8 @@ CAROUSSEL
   color: #DF7979;
   font-weight: bold;
   position: absolute;
-  left: 20px;
+  font-size: 1.2vw;
+  left: 15%;
   top: 15px;
 }
 
@@ -485,16 +474,17 @@ CAROUSSEL
   color: #F1AD6E;
   font-weight: 300;
   position: absolute;
-  left: 20px;
+  font-size: 1.1vw;
+  left: 15%;
   top: 45px;
 }
 
 .bar {
   position: absolute;
   top: 100px;
-  left: 20px;
+  left: 15%;
   height: 5px;
-  width: 150px;
+  width: 70%;
 }
 
 .emptybar {
@@ -515,7 +505,7 @@ CAROUSSEL
 }
 
 .card:hover .filledbar {
-  width: 120px;
+  width: 100%;
   transition: 0.4s ease-out;
 }
 
@@ -544,4 +534,10 @@ CAROUSSEL
     border-radius: 0px 0px 10px 10px;
     display: flex;
     align-self: flex-end;
+}
+
+
+/*TWEET*/
+.tweet {
+  width: 100%;
 }

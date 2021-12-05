@@ -37,10 +37,7 @@ app.use(bodyParser.json());
 // Nous créons des schémas nécessaires à la modélisation des données par mongoose
 //TWEETS
 var tweetSchema = mongoose.Schema({
-    auteur: String,
-    texte: String,
-    heure: String,
-    date: Date,
+    photo: String
 });
 
 var Tweet = mongoose.model('Tweet', tweetSchema);
@@ -78,10 +75,7 @@ myRouter.route('/tweets')
         //Nous utilisons le schema tweetSchema pour écrire dans la DB
         var tweet = new Tweet();
         // Nous récupérons les données reçues pour les ajouter à l'objet Piscine
-        tweet.auteur = req.body.auteur,
-        tweet.texte = req.body.texte,
-        tweet.heure = req.body.heure,
-        tweet.date = req.body.date
+        tweet.photo = req.body.photo
         tweet.save(function(err){
             if(err){
                 red.send(err);
@@ -107,10 +101,7 @@ myRouter.route('/tweets/:tweet_id')
             if(err){
                 res.send(err);
             }
-            tweet.auteur = req.body.auteur,
-            tweet.texte = req.body.texte,
-            tweet.heure = req.body.heure,
-            tweet.date = req.body.date
+            tweet.photo = req.body.photo
             tweet.save(function(err,){
                 if(err){
                     res.send(err);
