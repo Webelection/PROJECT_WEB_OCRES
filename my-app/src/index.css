@@ -613,5 +613,6 @@ main > * > * > h2{
 }
 
 .slides p{
-  padding: 0px 10px;
+  text-align: justify;
+  padding: 0px 30px;
 }

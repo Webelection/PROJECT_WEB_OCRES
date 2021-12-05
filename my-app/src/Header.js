@@ -6,6 +6,10 @@ function Header() {
     return (
         <header className="main-header">
             <div className="container1">
+                <div className="mh-logo">
+                    <img src={logo}  alt="Flexbox.ninja"></img>
+                </div>
+
                 <a href="/"><b target="_blank">Webelection</b></a>
 
                 <nav className="main-nav">
