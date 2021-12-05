@@ -51,6 +51,16 @@ var candiSchema = mongoose.Schema({
 
 var Candi = mongoose.model('Candi', candiSchema);
 
+//PROGRAMMES
+var progSchema = mongoose.Schema({
+    num: String,
+    candi: String,
+    parti: String,
+    texte: String,
+});
+
+var Prog = mongoose.model('Prog', progSchema);
+
 myRouter.route('/')
     // all permet de prendre en charge toutes les méthodes. 
     .all(function (req, res) {
@@ -74,7 +84,7 @@ myRouter.route('/tweets')
     .post(function (req, res) {
         //Nous utilisons le schema tweetSchema pour écrire dans la DB
         var tweet = new Tweet();
-        // Nous récupérons les données reçues pour les ajouter à l'objet Piscine
+        // Nous récupérons les données reçues pour les ajouter à l'objet Tweet
         tweet.photo = req.body.photo
         tweet.save(function(err){
             if(err){
@@ -138,7 +148,7 @@ myRouter.route('/candis')
 .post(function (req, res) {
     //Nous utilisons le schema candiSchema pour écrire dans la DB
     var candi = new Candi();
-    // Nous récupérons les données reçues pour les ajouter à l'objet Piscine
+    // Nous récupérons les données reçues pour les ajouter à l'objet Candi
     candi.nom = req.body.nom,
     candi.parti = req.body.parti,
     candi.photo = req.body.photo
@@ -185,6 +195,76 @@ myRouter.route('/candis/:candi_id')
             res.send(err);
         }
         res.send({message: 'Bravo, candidat supprimé'});
+    });
+});
+
+
+// Création de ma route (/progs).  
+myRouter.route('/progs')
+// J'implémente les méthodes GET, et POST
+// GET
+.get(function (req, res) {
+    //Utilisation de notre schéma progSchema pour interroger la base
+    Prog.find(function(err, progs){
+        if (err){
+            res.send(err);
+        }
+        res.json(progs);
+    });
+})
+//POST
+.post(function (req, res) {
+    //Nous utilisons le schema progSchema pour écrire dans la DB
+    var prog = new Prog();
+    // Nous récupérons les données reçues pour les ajouter à l'objet Prog
+    prog.num = req.body.num,
+    prog.candi = req.body.candi,
+    prog.parti = req.body.parti,
+    prog.texte = req.body.texte
+    prog.save(function(err){
+        if(err){
+            red.send(err);
+        }
+        res.send({message : 'Bravo, le programme est maintenant stocké en base de données'});
+    });
+});
+
+myRouter.route('/progs/:prog_id')
+// J'implémente les méthodes GET, PUT, et DELETE pour un programme donné
+//GET
+.get(function (req, res) {
+    Prog.findById(req.params.prog_id, function(err, prog){
+        if(err){
+            res.send(err);
+        }
+        res.json(prog);
+    });
+})
+//PUT
+.put(function (req, res) {
+    Prog.findById(req.params.prog_id, function(err, prog){
+        if(err){
+            res.send(err);
+        }
+        prog.num = req.body.num,
+        prog.candi = req.body.candi,
+        prog.parti = req.body.parti,
+        prog.texte = req.body.texte
+        prog.save(function(err,){
+            if(err){
+                res.send(err);
+            }
+            res.send({message: 'Bravo, données mise à jour'});
+        });
+    });
+})
+//DELETE
+.delete(function (req, res) {
+    Prog.remove({_id: req.params.prog_id}, function(err, prog){
+        if(err){
+            res.send(err);
+        }
+        res.send({message: 'Bravo, programme supprimé'});
     });
 });
 

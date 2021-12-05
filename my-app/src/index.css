@@ -317,18 +317,32 @@ b:after {
   width: 100%;
 }
 
-.element-flexible-1 > h2{
+main > * > * > h2{
   margin: 0px;
   padding: 15px;
   font-family: 'Slabo 27px', serif;
   height: 12%;
-  color:#8B8A89;
   text-align: center;
+  text-shadow:   -1px -1px 0 #DF7979,
+    1px -1px 0 #DF7979,
+    -1px 1px 0 #DF7979,
+    1px 1px 0 #DF7979,
+    1px 1px 2px #DF7979,
+    1px 1px 3px #DF7979,
+    1px 1px 4px #DF7979,
+    1px 1px 4px #DF7979,
+    1px 1px 5px #DF7979,
+    1px 1px 2px #DF7979,
+    1px 1px 2px #DF7979;
+  color:#fff;
+  font-size: 2vw;
 }
 
 .element-flexible-2{
   flex: 1 1 50px;
   width: 50%;
+  text-align: center;
+  overflow: hidden;
 }
 
 .element-flexible-3{
@@ -409,15 +423,6 @@ Ecriture
   display: flex;
   flex-direction: column;
   justify-content: center;
-}
-
-.boite > h2{
-  height: 12%;
-  color:#8B8A89;
-  text-align: center;
-  padding-top: 35px;
-  margin: 0px;
-  font-family: 'Slabo 27px', serif;
 }
 
 /*
@@ -536,27 +541,17 @@ CAROUSSEL
     align-self: flex-end;
 }
 
-
 /*TWEET*/
 .tweet {
   width: 100%;
 }
-/*CSS POUR LES PROGRAMMES DES CANDIDATS*/
-.slider {
-  width: 650px;
-  text-align: center;
-  overflow: hidden;
-}
 
+
+/*CSS POUR LES PROGRAMMES DES CANDIDATS*/
 .slides {
   display: flex;
-  
   overflow-x: auto;
   scroll-snap-type: x mandatory;
-  
-  
-  
-  
   scroll-behavior: smooth;
   -webkit-overflow-scrolling: touch;
   
@@ -566,11 +561,11 @@ CAROUSSEL
   */
 }
 .slides::-webkit-scrollbar {
-  width: 10px;
-  height: 10px;
+  width: 7px;
+  height: 7px;
 }
 .slides::-webkit-scrollbar-thumb {
-  background: #DF7979;
+  background: #8B8A89;
   border-radius: 10px;
 }
 .slides::-webkit-scrollbar-track {
@@ -579,11 +574,10 @@ CAROUSSEL
 .slides > div {
   scroll-snap-align: start;
   flex-shrink: 0;
-  width: 650px;
-  height: 300px;
+  width: 99%;
+  height: 333px;
   margin-right: 50px;
   border-radius: 10px;
-  background: #FAEAD9;
   transform-origin: center center;
   transform: scale(1);
   transition: transform 0.5s;
@@ -592,16 +586,14 @@ CAROUSSEL
   
   display: flex;
   flex-direction: column;
-  /*justify-content: center;
-  align-items: center;*/
-  /*font-size: 100px;*/
+ 
 }
 .slides > div::-webkit-scrollbar {
-  width: 10px;
-  height: 10px;
+  width: 7px;
+  height: 7px;
 }
 .slides > div::-webkit-scrollbar-thumb {
-  background: #DF7979;
+  background: #8B8A89;
   border-radius: 10px;
 }
 .slides > div::-webkit-scrollbar-track {
@@ -610,35 +602,15 @@ CAROUSSEL
 
 .slides h1{
   color:#DF7979;
+  margin: 30px 0px 0px 0px;
+  font-size: 1.8vw;
 }
 .slides h2{
   color: #F1AD6E;
+  margin-top: 0px;
+  font-size: 1.5vw;
 }
 
-
-
-.slider > a {
-  display: inline-flex;
-  width: 1.5rem;
-  height: 1.5rem;
-  background: #DF7979;
-  text-decoration: none;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50%;
-  margin: 0 0 0.5rem 0;
-  position: relative;
-}
-.slider > a:active {
-  top: 1px;
-}
-.slider > a:focus {
-  background: #000;
-}
-
-/* Don't need button navigation */
-@supports (scroll-snap-type) {
-  .slider > a {
-    display: none;
-  }
+.slides p{
+  padding: 0px 10px;
 }
