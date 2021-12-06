@@ -7,19 +7,20 @@ import Prog from './Prog';
 import Sond from './Sond';
 
 class Widget extends React.Component {
-    /*constructor (props) {
+    constructor (props) {
       super (props);
-      //this.state
-    }*/
+      this.state = {
+          type: props.type
+      }
+    }
 
     render() {
+        const classe = `element-flexible-${this.state.type}`;
+        console.log('Classe : ' + classe);
         return (
-            /* IMAGE EN REACT
-            <div>
-            <img src={img} alt="img not found"></img>
-            Pipouuuuuuuuuuuuuuuuuu
-            </div>*/
-            null
+            <div className={classe}>
+                {this.props.children}
+            </div>
         );
     }
 }
@@ -35,36 +36,39 @@ class DashBoard extends React.Component {
     render() {
         return (
             <main>
-                <Widget />
-
                 <div className="conteneur-flexible-ligne">
-                    <div className="element-flexible-1">
+                    <Widget type='1'>
                         <h2>Les candidats à la présidentielle 2022</h2>
                         <Candi />
-                    </div>
+                    </Widget>
                 </div>
 
                 <div className="conteneur-flexible-ligne">
-                    <div className="element-flexible-2">
+                    <Widget type='2'>
                         <h2>Les programmes</h2>
                         <Prog />
-                    </div>
-                    <div className="element-flexible-2">
+                    </Widget>
+                    <Widget type='2'>
                         <h2>Les résultats des sondages</h2>
                         <Sond />
-                    </div>
+                    </Widget>
                 </div>
 
                 <div className="conteneur-flexible-ligne">
-                    <div className="element-flexible-3">
+                    <Widget type='3'>
                         <h2>Un peu de douceur dans ce monde de brutes</h2>
                         <Cat />
-                    </div>
-                    <div className="element-flexible-4"><Tweet /></div>
+                    </Widget>
+                    <Widget type='4'>
+                        <h2>Les tweets du moment</h2>
+                        <Tweet />
+                    </Widget>
                 </div>
 
                 <div className="conteneur-flexible-ligne">
-                    <div className="element-flexible-1"></div>
+                    <Widget type='1'>
+                        <h2>Focus sur un candidat</h2>
+                    </Widget>
                 </div>
 
             </main>

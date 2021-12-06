@@ -62,11 +62,6 @@ var progSchema = mongoose.Schema({
 var Prog = mongoose.model('Prog', progSchema);
 
 //SONDAGE
-var sondSchemaB = mongoose.Schema({
-    num: Number,
-    candi: String,
-    col: String,
-});
 
 var sondSchema = mongoose.Schema({
     date: String,
