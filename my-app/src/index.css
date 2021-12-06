@@ -785,3 +785,18 @@ p:last-child{
 }
 
 /***** FIN TIMELINES *****/
+
+
+/***** CSS POUR SONDAGE *****/
+.sondageWidg > h3{
+  margin-bottom: 5px;
+}
+
+.sondage {
+  display: flex;
+
+}
+
+.recharts-legend-item-text {
+  font-size: 1.3vw;
+}

@@ -62,10 +62,17 @@ var progSchema = mongoose.Schema({
 var Prog = mongoose.model('Prog', progSchema);
 
 //SONDAGE
-var sondSchema = mongoose.Schema({
+var sondSchemaB = mongoose.Schema({
     num: Number,
     candi: String,
     col: String,
+});
+
+var sondSchema = mongoose.Schema({
+    date: String,
+    num: Number,
+    candi: String,
+    col: String
 });
 
 var Sond = mongoose.model('Sond', sondSchema);
@@ -296,6 +303,7 @@ myRouter.route('/sond')
     //Nous utilisons le schema sondSchema pour écrire dans la DB
     var sond = new Sond();
     // Nous récupérons les données reçues pour les ajouter à l'objet Sond
+    sond.date = req.body.date,
     sond.num = req.body.num,
     sond.candi = req.body.candi,
     sond.col = req.body.col
@@ -324,6 +332,7 @@ myRouter.route('/sond/:sond_id')
         if(err){
             res.send(err);
         }
+        sond.date = req.body.date,
         sond.num = req.body.num,
         sond.candi = req.body.candi,
         sond.col = req.body.col
