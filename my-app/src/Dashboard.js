@@ -4,6 +4,7 @@ import Cat from './Cat';
 import Tweet from './Tweet';
 import Candi from './Candi';
 import Prog from './Prog';
+import Sond from './Sond';
 
 class Widget extends React.Component {
     /*constructor (props) {
@@ -48,7 +49,10 @@ class DashBoard extends React.Component {
                         <h2>Les programmes</h2>
                         <Prog />
                     </div>
-                    <div className="element-flexible-2"></div>
+                    <div className="element-flexible-2">
+                        <h2>Les résultats des sondages</h2>
+                        <Sond />
+                    </div>
                 </div>
 
                 <div className="conteneur-flexible-ligne">
