@@ -61,6 +61,22 @@ var progSchema = mongoose.Schema({
 
 var Prog = mongoose.model('Prog', progSchema);
 
+//SONDAGE
+var sondSchemaB = mongoose.Schema({
+    num: Number,
+    candi: String,
+    col: String,
+});
+
+var sondSchema = mongoose.Schema({
+    date: String,
+    num: Number,
+    candi: String,
+    col: String
+});
+
+var Sond = mongoose.model('Sond', sondSchema);
+
 myRouter.route('/')
     // all permet de prendre en charge toutes les méthodes. 
     .all(function (req, res) {
@@ -265,6 +281,76 @@ myRouter.route('/progs/:prog_id')
             res.send(err);
         }
         res.send({message: 'Bravo, programme supprimé'});
+    });
+});
+
+
+// Création de ma route (/sond).  
+myRouter.route('/sond')
+// J'implémente les méthodes GET, et POST
+// GET
+.get(function (req, res) {
+    //Utilisation de notre schéma sondSchema pour interroger la base
+    Sond.find(function(err, sond){
+        if (err){
+            res.send(err);
+        }
+        res.json(sond);
+    });
+})
+//POST
+.post(function (req, res) {
+    //Nous utilisons le schema sondSchema pour écrire dans la DB
+    var sond = new Sond();
+    // Nous récupérons les données reçues pour les ajouter à l'objet Sond
+    sond.date = req.body.date,
+    sond.num = req.body.num,
+    sond.candi = req.body.candi,
+    sond.col = req.body.col
+    sond.save(function(err){
+        if(err){
+            red.send(err);
+        }
+        res.send({message : 'Bravo, le sondage est maintenant stocké en base de données'});
+    });
+});
+
+myRouter.route('/sond/:sond_id')
+// J'implémente les méthodes GET, PUT, et DELETE pour un sondage donné
+//GET
+.get(function (req, res) {
+    Sond.findById(req.params.sond_id, function(err, sond){
+        if(err){
+            res.send(err);
+        }
+        res.json(sond);
+    });
+})
+//PUT
+.put(function (req, res) {
+    Sond.findById(req.params.sond_id, function(err, sond){
+        if(err){
+            res.send(err);
+        }
+        sond.date = req.body.date,
+        sond.num = req.body.num,
+        sond.candi = req.body.candi,
+        sond.col = req.body.col
+        sond.save(function(err,){
+            if(err){
+                res.send(err);
+            }
+            res.send({message: 'Bravo, données mise à jour'});
+        });
+    });
+})
+//DELETE
+.delete(function (req, res) {
+    Sond.remove({_id: req.params.sond_id}, function(err, sond){
+        if(err){
+            res.send(err);
+        }
+        res.send({message: 'Bravo, sondage supprimé'});
     });
 });
 

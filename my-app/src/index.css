@@ -323,6 +323,7 @@ main > * > * > h2{
     1px 1px 2px #DF7979;
   color:#fff;
   font-size: 2vw;
+  /*border-bottom: 2px solid #DF7979;*/
 }
 
 .element-flexible-2{
@@ -428,8 +429,16 @@ main > * > * > h2{
   font-family: 'Slabo 27px', serif;
   
 }
-
 /***** FIN CHATS *****/
+
+
+/***** CSS POUR TWEETS *****/
+.tweet {
+  width: 100%;
+}
+
+
+/***** FIN TWEETS *****/
 
 
 /***** CSS POUR CAROUSSEL *****/
@@ -547,7 +556,6 @@ main > * > * > h2{
 
 /***** CSS POUR LES PROGRAMMES DES CANDIDATS *****/
 
-
 .slides {
   display: flex;
   overflow-x: auto;
@@ -664,16 +672,16 @@ p:not([class]):first-child{
 }
 
 
-.card{
+.timelinecard{
   padding: var(--timelineCardPadding, 1.5rem 1.5rem 1.25rem);
 }
 
-.card__content{
+.cardcontent{
   margin-top: var(--cardContentMarginTop, .5rem);
 }
 
 
-.card{
+.timelinecard{
   border-radius: var(--timelineCardBorderRadius, 2px);
   border-left: var(--timelineCardBorderLeftWidth, 3px) solid var(--timelineCardBorderLeftColor, var(--uiTimelineMainColor));
   box-shadow: var(--timelineCardBoxShadow, 0 1px 3px 0 rgba(0, 0, 0, .12), 0 1px 2px 0 rgba(0, 0, 0, .24));
@@ -690,11 +698,16 @@ p:not([class]):first-child{
   grid-row-gap: var(--timelineGroupsGap, 2rem);
 }
 
-.timeline__year{
+.timeline{
+  display: var(--timelineDisplay, grid);
+  grid-row-gap: var(--timelineGroupsGap, 2rem);
+}
+
+.timelineyear{
   margin-bottom: 1.25rem; /* 1 */
 }
 
-.timeline__cards{
+.timelinecards{
   display: var(--timeloneCardsDisplay, grid);
   grid-row-gap: var(--timeloneCardsGap, 1.5rem);
 }
@@ -774,3 +787,18 @@ p:last-child{
 }
 
 /***** FIN TIMELINES *****/
+
+
+/***** CSS POUR SONDAGE *****/
+.sondageWidg > h3{
+  margin-bottom: 5px;
+}
+
+.sondage {
+  display: flex;
+
+}
+
+.recharts-legend-item-text {
+  font-size: 1.3vw;
+}
