@@ -433,10 +433,11 @@ main > * > * > h2{
 
 
 /***** CSS POUR TWEETS *****/
+.cont_tweet{
+  width: 100%;
+  height: 88%; 
+}
 
-
-
-/***** FIN TWEETS *****/
 .tweet > a{
   width: 100%;
   display: flex;
@@ -513,6 +514,8 @@ main > * > * > h2{
 .btn_tweet:hover:after{
   transform: none;
 }
+/***** FIN TWEETS *****/
+
 
 /***** CSS POUR CAROUSSEL *****/
 .contCard {
