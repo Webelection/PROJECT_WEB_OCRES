@@ -468,6 +468,7 @@ main > * > * > h2{
 .cont_tweet{
   width: 100%;
   height: 88%; 
+  align-items: center;
 }
 
 .tweet > a{
@@ -478,17 +479,17 @@ main > * > * > h2{
 }
 
 .cont_img a{
+  height: 270px;
   display: flex;
-  align-items: center;
   justify-content: center;
-  margin-top: 5%;
+  align-items: center;
 }
 
-.cont_tweet a img{
-  width: 70%;
+.cont_img img{
+  max-width: 70%;
+  max-height: 225px;
   border-radius: 5%;
   box-shadow: 10px 5px 10px #8B8A89;
-
 }
 
 /*Bouton tweet*/
@@ -499,7 +500,7 @@ main > * > * > h2{
 }
 
 .bouton_tweet {
-  padding: 1.5rem 0;
+  height: 40px;
   filter: url('#goo');
   display: flex;
   align-items: center;
