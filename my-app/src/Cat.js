@@ -18,11 +18,11 @@ function Cat() {
     return (
         <div className="boite">
             <div className="cat__main">
-                <img src={url} className="cat__img" alt="Img not found"></img>
+                <img src={url} className="cat__img" alt="Boule de poils en chargement..."></img>
             </div>
             <div className="center">
                 <button className="btn" onClick={fetch_data} alt="Image introuvable">
-                    <span>HOVER ME</span>
+                    <span style={{fontSize: "1vw"}}>Cliquez pour de la douceur</span>
                 </button>
             </div>
         </div>
