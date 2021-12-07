@@ -9,83 +9,13 @@ class Form extends React.Component {
             isLoaded: false,
             api: "candis",
             reponse: [],
-            id: ""
+            id: "",
+            request: "post"
         }
         this.handleChangeF = this.handleChangeF.bind(this);
         this.handleSubmitF = this.handleSubmitF.bind(this);
-    }
-
-    callAPI() {
-        axios.get(`http://localhost:7000/${this.state.api}`)
-            .then(res => {
-                const elements = res.data;
-                this.setState({
-                    isLoaded: true,
-                    reponse: elements
-                });
-            });
-    }
-
-    UNSAFE_componentWillMount() {
-        this.callAPI();
-    }
-
-    handleChangeF(event) {
-        this.callAPI();
-        this.setState({ api: event.target.value });
-    }
-
-    handleSubmitF(event) {
-        console.log('api : ' + this.state.api);
-        event.preventDefault();
-    }
-
-    setId(event) {
-        console.log('value : ' + event.target.value);
-        this.setState({ id: event.target.value });
-    }
-
-    formAPI() {
-        switch (this.state.api) {
-            case 'candis':
-                const data = this.state.reponse;
-                console.log('DATA : ' + data);
-                return (
-                    <div>
-                        Voila les candidats
-                        <form>
-                            <select value={this.state.id} onChange={this.setId}>
-                                {data.map(candi => (
-                                    <option value={candi._id}>{candi.nom}</option>
-                                ))}
-                            </select>
-                        </form>
-                    </div>
-                )
-
-            case 'progs':
-                return (
-                    <div>Voila les programmes</div>
-                )
-
-            case 'sond':
-                return (
-                    <div>Voila les sondages</div>
-                )
-
-            case 'tweets':
-                return (
-                    <div>Voila les tweets</div>
-                )
-
-            case 'focus':
-                return (
-                    <div>Voila les focus</div>
-                )
-
-            default:
-                console.log("Err");
-        }
+        this.setId = this.setId.bind(this);
+        this.setReq = this.setReq.bind(this);
     }
 
     render() {
@@ -110,9 +40,143 @@ class Form extends React.Component {
             );
         }
         else {
-            return(
+            return (
                 <div className="forms">Chargement des apis...</div>
             )
+        }
+    }
+
+    callAPI() {
+        axios.get(`http://localhost:7000/${this.state.api}`)
+            .then(res => {
+                const elements = res.data;
+                this.setState({
+                    isLoaded: true,
+                    reponse: elements
+                });
+            });
+    }
+
+    callElementCPo(nom, parti, photo) {
+        const candi = {
+            nom: nom,
+            parti: parti,
+            photo: photo
+        };
+        axios.post(`http://localhost:7000/${this.state.api}`, {candi})
+            .then(res => {
+                console.log('res : ' + res);
+                console.log('res.data : ' + res.data);
+            })
+    }
+
+    UNSAFE_componentWillMount() {
+        this.callAPI();
+    }
+
+    handleChangeF(event) {
+        this.callAPI();
+        this.setState({ api: event.target.value });
+    }
+
+    handleSubmitF(event) {
+        event.preventDefault();
+    }
+
+    setId(event) {
+        this.setState({ id: event.target.value });
+    }
+
+    setReq(event) {
+
+        this.setState({ request: event.target.value });
+    }
+
+    formAPI() {
+        switch (this.state.api) {
+            case 'candis':
+                const data = this.state.reponse;
+                return (
+                    <div>
+                        Voila les candidats
+                        <form>
+                            <select value={this.state.id} onChange={this.setId}>
+                                {data.map(candi => (
+                                    <option value={candi._id}>{candi.nom}</option>
+                                ))}
+                            </select>
+                            <select value={this.state.request} onChange={this.setReq}>
+                                <option value='post'>Ajouter un candidat</option>
+                                <option value='put'>Modifier un candidat</option>
+                                <option value='delete'>Supprimer un candidat</option>
+                            </select>
+                        </form>
+                        {this.formElement()}
+                    </div>
+                );
+
+            case 'progs':
+                return (
+                    <div>Voila les programmes</div>
+                );
+
+            case 'sond':
+                return (
+                    <div>Voila les sondages</div>
+                );
+
+            case 'tweets':
+                return (
+                    <div>Voila les tweets</div>
+                );
+
+            case 'focus':
+                return (
+                    <div>Voila les focus</div>
+                );
+
+            default:
+                console.log("Err");
+        }
+    }
+
+    formElement() {
+        console.log('request : ' + this.state.request);
+        switch (this.state.request) {
+            case 'post':
+                var nom = "";
+                var parti = "";
+                var photo = "";
+                return (
+                    <form onSubmit={this.callElementCPo(nom, parti, photo)}>
+                        <label>
+                            Nom : 
+                            <textarea value={nom}/>
+                        </label>
+                        <label>
+                            Parti : 
+                            <textarea value={parti}/>
+                        </label>
+                        <label>
+                            URL de la photo : 
+                            <textarea value={photo}/>
+                        </label>
+                        <input type="submit" value="Envoyer" />
+                    </form>
+                );
+
+            case 'put':
+                return (
+                    null
+                );
+
+            case 'delete':
+                return (
+                    null
+                );
+
+            default:
+                console.log('ERR');
         }
     }
 }
