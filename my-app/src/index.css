@@ -356,11 +356,14 @@ main > * > * > h2{
   max-height: 70%;
   max-width: 70%;
   margin:1rem;
+  border-radius: 5%;
+  box-shadow: 10px 5px 10px #8B8A89;
 }
 
 .cat__btn{
   padding: 1rem;
   margin: 1rem;
+
 }
 
 @import url('https://fonts.googleapis.com/css?family=Lato:100&display=swap');
@@ -371,32 +374,61 @@ main > * > * > h2{
   align-items: center;
   justify-content: flex-end;
 }
+.bouton {
+  padding: 1.5rem 0;
+  filter: url('#goo');
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
 .btn {
-  width: 30%;
-  height: 100%;
-  cursor: pointer;/*forme du curseur*/
-  background: transparent;
-  border: 1px solid #DF7979;
-  outline: none;
-  transition: 1s ease-in-out;
-}
-
-.btn:hover {
-  transition: 1s ease-in-out;/*temps du chamgement de couleur*/
-  background: #6225E6;/*#DF7979*//*#F1AD6E*/
-  border: 1px solid #6225E6;
-}
-
-.btn span {
-  color:#DF7979;
-  font-size: 1rem;
-  font-weight: bold;
-}
-
-.btn:hover span{
-  transition: 1s ease-in-out;
+  display: inline-block;
+  text-align: center;
+  background: #DF7979;
   color: white;
+  font-weight: bold;
+  padding: 1.18em 1.32em 1.03em;
+  line-height: 1;
+  border-radius: 1em;
+  position: relative;
+  min-width: 8.23em;
+  text-decoration: none;
+  font-family: var(--font);
+  font-size: 1vw;
+}
+
+.btn:hover{
+  cursor: pointer;
+}
+
+.btn:before,
+.btn:after {
+  width: 4.4em;
+  height: 2.95em;
+  position: absolute;
+  content: "";
+  display: inline-block;
+  background: #DF7979;
+  border-radius: 50%;
+  transition: transform 0.5s ease;
+  transform: scale(0);
+  z-index: -1;
+}
+
+.btn:before {
+  top: -25%;
+  left: 20%;
+}
+
+.btn:after {
+  bottom: -25%;
+  right: 20%;
+}
+
+.btn:hover:before,
+.btn:hover:after{
+  transform: none;
 }
 
 .boite {
@@ -434,9 +466,6 @@ main > * > * > h2{
 
 /***** CSS POUR TWEETS *****/
 
-
-
-/***** FIN TWEETS *****/
 .tweet > a{
   width: 100%;
   display: flex;
@@ -444,9 +473,17 @@ main > * > * > h2{
   align-items: center;
 }
 
+.cont_img a{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 5%;
+}
 
-.tweet > * > img{
-    width: 70%;
+.cont_tweet a img{
+  width: 70%;
+  border-radius: 5%;
+  box-shadow: 10px 5px 10px #8B8A89;
 
 }
 
@@ -513,6 +550,8 @@ main > * > * > h2{
 .btn_tweet:hover:after{
   transform: none;
 }
+
+/***** FIN TWEETS *****/
 
 /***** CSS POUR CAROUSSEL *****/
 .contCard {

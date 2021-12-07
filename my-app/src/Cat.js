@@ -21,9 +21,9 @@ function Cat() {
                 <img src={url} className="cat__img" alt="Boule de poils en chargement..."></img>
             </div>
             <div className="center">
-                <button className="btn" onClick={fetch_data} alt="Image introuvable">
-                    <span style={{fontSize: "1vw"}}>Cliquez pour de la douceur</span>
-                </button>
+                    <div class="bouton">
+                        <p class="btn" onClick={fetch_data} style={{fontSize: "1vw"}}>Encore plus de poils</p>
+                    </div>
             </div>
         </div>
     );
