@@ -38,8 +38,12 @@ class Tweet extends React.Component {
             const tweet = data[this.state.index];
             return (
                 <div className="cont_tweet">
-                    <a href={tweet.url} target="_blank" rel="noreferrer"><img src={tweet.photo} style={{maxHeight: "70%", maxWidth: "100%"}} alt="Chargement du drama..."/></a>
-                    <div class="bouton_tweet" height="30%">
+                    <div className="cont_img">
+                    <a href={tweet.url} target="_blank" rel="noreferrer">
+                        <img src={tweet.photo} width="100%" alt="Chargement du drama..."/>
+                    </a>
+                    </div>
+                    <div class="bouton_tweet" >
                         <p class="btn_tweet" style={{fontSize: "1vw"}} onClick={() => this.randomIndex()}>Autre Tweet</p>
                     </div>
                 </div>
