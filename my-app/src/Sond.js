@@ -83,7 +83,6 @@ class Sond extends React.Component {
             var activeI = this.state.activeIndex;
             var data = [];
             var legend = [];
-            console.log('Data : ' + data);
             var date = rep[0].date;
             for (var i = 0; i < rep.length; i++) {
                 const candi = rep[i].candi;

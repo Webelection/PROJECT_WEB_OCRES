@@ -433,13 +433,86 @@ main > * > * > h2{
 
 
 /***** CSS POUR TWEETS *****/
-.tweet {
-  width: 100%;
-}
+
 
 
 /***** FIN TWEETS *****/
+.tweet > a{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
+
+.tweet > * > img{
+    width: 70%;
+
+}
+
+/*Bouton tweet*/
+:root {
+  --bg: #1a1e24;
+  --color: #eee;
+  --font: Montserrat, Roboto, Helvetica, Arial, sans-serif;
+}
+
+.bouton_tweet {
+  padding: 1.5rem 0;
+  filter: url('#goo');
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn_tweet {
+  display: inline-block;
+  text-align: center;
+  background: #DF7979;
+  color: white;
+  font-weight: bold;
+  padding: 1.18em 1.32em 1.03em;
+  line-height: 1;
+  border-radius: 1em;
+  position: relative;
+  min-width: 8.23em;
+  text-decoration: none;
+  font-family: var(--font);
+  font-size: 1vw;
+}
+
+.btn_tweet:hover{
+  cursor: pointer;
+}
+
+.btn_tweet:before,
+.btn_tweet:after {
+  width: 4.4em;
+  height: 2.95em;
+  position: absolute;
+  content: "";
+  display: inline-block;
+  background: #DF7979;
+  border-radius: 50%;
+  transition: transform 0.5s ease;
+  transform: scale(0);
+  z-index: -1;
+}
+
+.btn_tweet:before {
+  top: -25%;
+  left: 20%;
+}
+
+.btn_tweet:after {
+  bottom: -25%;
+  right: 20%;
+}
+
+.btn_tweet:hover:before,
+.btn_tweet:hover:after{
+  transform: none;
+}
 
 /***** CSS POUR CAROUSSEL *****/
 .contCard {

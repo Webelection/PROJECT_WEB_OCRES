@@ -16,7 +16,6 @@ class Widget extends React.Component {
 
     render() {
         const classe = `element-flexible-${this.state.type}`;
-        console.log('Classe : ' + classe);
         return (
             <div className={classe}>
                 {this.props.children}

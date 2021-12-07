@@ -5,7 +5,9 @@ class Tweet extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            reponse:[]
+            isLoaded: false,
+            reponse: [],
+            index: 0
         };
     }
 
@@ -13,7 +15,10 @@ class Tweet extends React.Component {
         fetch("http://localhost:7000/tweets")
             .then(res => res.json())
             .then(res => {
-                this.setState({reponse: res});
+                this.setState({
+                    isLoaded: true,
+                    reponse: res 
+                });
             });
     }
 
@@ -21,19 +26,30 @@ class Tweet extends React.Component {
         this.callAPI();
     }
 
-    render() {
-        if(this.state.reponse) {
-            const data = this.state.reponse.slice();
+    randomIndex() {
+        var index = Math.floor(Math.random() * this.state.reponse.length);
+        console.log('index : ' + index);
+        this.setState({index: index});
+    }
 
-            return(
-                <div>
-                    {data.map(tweet => (
-                            <img className="tweet" src={tweet.photo} alt="Img not found"></img>
-                    ))}
+    render() {
+        if (this.state.isLoaded) {
+            const data = this.state.reponse.slice();
+            const tweet = data[this.state.index];
+            return (
+                <div className="cont_tweet">
+                    <a href={tweet.url} target="_blank"><img src={tweet.photo} width="100%" alt="Chargement du drama..."/></a>
+                    <div class="bouton_tweet" >
+                        <p class="btn_tweet" style={{fontSize: "1vw"}} onClick={() => this.randomIndex()}>Autre Tweet</p>
+                    </div>
                 </div>
             );
         }
-        return null;
+        return (
+            <div className="cont_tweet">
+                Chargement du drama...        
+            </div>
+        );
     }
 }
 

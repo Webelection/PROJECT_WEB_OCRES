@@ -37,7 +37,8 @@ app.use(bodyParser.json());
 // Nous créons des schémas nécessaires à la modélisation des données par mongoose
 //TWEETS
 var tweetSchema = mongoose.Schema({
-    photo: String
+    photo: String,
+    url: String
 });
 
 var Tweet = mongoose.model('Tweet', tweetSchema);
@@ -96,7 +97,8 @@ myRouter.route('/tweets')
         //Nous utilisons le schema tweetSchema pour écrire dans la DB
         var tweet = new Tweet();
         // Nous récupérons les données reçues pour les ajouter à l'objet Tweet
-        tweet.photo = req.body.photo
+        tweet.photo = req.body.photo,
+        tweet.url = req.body.url
         tweet.save(function(err){
             if(err){
                 red.send(err);
@@ -122,7 +124,8 @@ myRouter.route('/tweets/:tweet_id')
             if(err){
                 res.send(err);
             }
-            tweet.photo = req.body.photo
+            tweet.photo = req.body.photo,
+            tweet.url = req.body.url
             tweet.save(function(err,){
                 if(err){
                     res.send(err);
