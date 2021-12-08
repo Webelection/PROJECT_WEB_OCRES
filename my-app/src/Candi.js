@@ -36,7 +36,7 @@ class Candi extends React.Component {
                             </div>
                             <h4 className="candi_pa"> {candi.parti} </h4>
                             <div class="circle">
-                                <a href=" "><img className="candidat" src={candi.photo} alt="Img not found"></img></a>
+                                <img className="candidat" src={candi.photo} alt="Img not found"></img>
                             </div>
                         </div>
                     ))}

@@ -126,11 +126,11 @@ main h2{
     margin-right: 45px;/*agrandissament du bouton quand curseur dessus*/
 }
 
-  span {
+  .cta > span {
     transform: skewX(15deg) 
   }
 
-  span:nth-child(2) {
+  .cta > span:nth-child(2) {
     width: 20px;
     margin-left: 30px;
     position: relative;
@@ -179,7 +179,7 @@ path.two {
     transform: translateX(-50%) translateY(-50%) rotate(0deg);
   }
   100% {
-    transform: translateX(-50%) translateY(-50%) rotate(10deg);/*360 deg de base*/
+    transform: translateX(-50%) translateY(-50%) rotate(360deg);/*360 deg de base*/
   }
 }
 
@@ -206,7 +206,7 @@ b:after {
   display: block;
   border: 8px solid #DF7979;
   transform: translateX(-50%) translateY(-50%) rotate(0deg);
-  animation: 10s infinite alternate ease-in-out tipsy;
+  animation: 45s infinite alternate ease-in-out tipsy;
 }
 
 b:before {
@@ -216,8 +216,7 @@ b:before {
 
 b:after {
   border-color: rgba(0, 0, 0, 0) rgba(0, 0, 0, 0) #DF7979 #DF7979;
-  box-shadow: 25px 25px 70px #8B8A89;
-}
+  }
 
 /***** FIN DU HEADER *****/
 
@@ -561,6 +560,7 @@ main > * > * > h2{
 /***** FIN TWEETS *****/
 
 /***** CSS POUR CAROUSSEL *****/
+
 .contCard {
   height: 88%;
   width: 90%;
@@ -602,7 +602,7 @@ main > * > * > h2{
   color: #DF7979;
   font-weight: bold;
   position: absolute;
-  font-size: 1.2vw;
+  font-size: 1.1vw;
   left: 15%;
   top: 15px;
 }
@@ -674,6 +674,35 @@ main > * > * > h2{
 
 
 /***** CSS POUR LES PROGRAMMES DES CANDIDATS *****/
+
+.slider {
+  width: 100%;
+  height: 350px;
+  /*text-align: center;
+  overflow: hidden;*/
+}
+
+.slider > a {
+  display: inline-flex;
+  width: 1.5rem;
+  height: 1.5rem;
+  color: white;
+  background: #8B8A89;
+  text-decoration: none;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  margin: 0 0 0.5rem 0;
+  position: relative;
+}
+
+.slider > a:active {
+  top: 1px;
+}
+
+.slider > a:focus {
+  background: #000;
+} 
 
 .slides {
   display: flex;
@@ -755,13 +784,80 @@ main > * > * > h2{
 }
 
 
-p:not([class]){
+.slides2 {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+}
+
+.slides2::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+
+.slides2::-webkit-scrollbar-thumb {
+  background: #8B8A89;
+  border-radius: 10px;
+}
+
+.slides2::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.slides2 > div {
+  scroll-snap-align: start;
+  flex-shrink: 0;
+  width: 96%;
+  height: 300px;
+  margin-right: 0px;
+  margin-left: 65px;
+  border-radius: 10px;
+  background: #FAEAD9;
+  border: solid #F1AD6E;
+  transform-origin: center center;
+  transform: scale(1);
+  transition: transform 0.5s;
+  position: relative;
+  overflow: scroll;  
+  display: flex;
+  flex-direction: column;
+}
+
+.slides2 > div::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+
+.slides2 > div::-webkit-scrollbar-thumb {
+  background: #8B8A89;
+  border-radius: 10px;
+}
+
+.slides2 > div::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.slides2 h2{
+  color: #F1AD6E;
+  margin-top: 0px;
+  font-size: 2vw;
+}
+
+.slides2 p{
+  text-align: justify;
+  padding: 0px 30px;
+}
+
+
+.card__content > p:not([class]){
   line-height: var(--cssTypographyLineHeight, 1.78);
   margin-top: var(--cssTypographyBasicMargin, 1em);
   margin-bottom: 0;
 }
 
-p:not([class]):first-child{
+.card__content > p:not([class]):first-child{
   margin-top: 0;
 }
 
@@ -790,21 +886,8 @@ p:not([class]):first-child{
   color: var(--timeColor, currentColor);
 }
 
-
-.timelinecard{
-  padding: var(--timelineCardPadding, 1.5rem 1.5rem 1.25rem);
-}
-
-.cardcontent{
+.card__content{
   margin-top: var(--cardContentMarginTop, .5rem);
-}
-
-
-.timelinecard{
-  border-radius: var(--timelineCardBorderRadius, 2px);
-  border-left: var(--timelineCardBorderLeftWidth, 3px) solid var(--timelineCardBorderLeftColor, var(--uiTimelineMainColor));
-  box-shadow: var(--timelineCardBoxShadow, 0 1px 3px 0 rgba(0, 0, 0, .12), 0 1px 2px 0 rgba(0, 0, 0, .24));
-  background-color: var(--timelineCardBackgroundColor, #fff);
 }
 
 .card__title{
@@ -817,16 +900,11 @@ p:not([class]):first-child{
   grid-row-gap: var(--timelineGroupsGap, 2rem);
 }
 
-.timeline{
-  display: var(--timelineDisplay, grid);
-  grid-row-gap: var(--timelineGroupsGap, 2rem);
-}
-
-.timelineyear{
+.timeline__year{
   margin-bottom: 1.25rem; /* 1 */
 }
 
-.timelinecards{
+.timeline__cards{
   display: var(--timeloneCardsDisplay, grid);
   grid-row-gap: var(--timeloneCardsGap, 1.5rem);
 }
@@ -847,7 +925,7 @@ p:not([class]):first-child{
   --timeFontWeight: var(--timelineYearFontWeight, 400);
 }
 
-.timeline__card{
+.timeline__cards > .timeline__card{
   position: relative;
   margin-left: var(--timelineCardLineGap, 1rem);
 }
@@ -858,7 +936,7 @@ p:not([class]):first-child{
   padding-bottom: .25rem; 
 }
 
-.timeline__card::before{
+.timeline__cards > .timeline__card::before{
   content: "";
   width: 100%;
   height: var(--timelineCardLineWidth, 2px);
@@ -874,7 +952,11 @@ p:not([class]):first-child{
   --timelineMainColor: black;
 }
 
-p{
+.timeline__group > h2{
+  margin-left:43%;
+}
+
+.card__content > p{
   margin-top: 0;
   margin-bottom: 1rem;
   line-height: 1.5;
@@ -886,8 +968,9 @@ p:last-child{
 
 .page{
   width: 90%;
-  height: 350px;
+  height: 300px;
   padding: 1rem 1rem 1rem;
+  margin-top: 5%;
   margin-left: auto;
   margin-right: auto;
   background-color: white;
@@ -903,6 +986,17 @@ p:last-child{
   max-width: 480px;
   height: 280px;
   margin: 1rem auto;;
+}
+
+.timeline__card{
+  border-radius: var(--timelineCardBorderRadius, 2px);
+  border-left: var(--timelineCardBorderLeftWidth, 3px) solid var(--timelineCardBorderLeftColor, var(--uiTimelineMainColor));
+  box-shadow: var(--timelineCardBoxShadow, 0 1px 3px 0 rgba(0, 0, 0, .12), 0 1px 2px 0 rgba(0, 0, 0, .24));
+  background-color: var(--timelineCardBackgroundColor, #fff);
+}
+
+.timeline__card{
+  padding: var(--timelineCardPadding, 1.5rem 1.5rem 1.25rem);
 }
 
 /***** FIN TIMELINES *****/
