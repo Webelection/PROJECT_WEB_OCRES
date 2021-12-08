@@ -173,11 +173,8 @@ myRouter.route('/candis')
 //POST
 .post(function (req, res) {
     //Nous utilisons le schema candiSchema pour écrire dans la DB
-    var candi = new Candi();
+    var candi = new Candi(req.body);
     // Nous récupérons les données reçues pour les ajouter à l'objet Candi
-    candi.nom = req.body.nom,
-    candi.parti = req.body.parti,
-    candi.photo = req.body.photo
     candi.save(function(err){
         if(err){
             red.send(err);

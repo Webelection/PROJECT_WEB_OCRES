@@ -1009,3 +1009,20 @@ p:last-child{
 .recharts-legend-item-text {
   font-size: 1.3vw;
 }
+
+
+/***** CSS POUR FORMS *****/
+form{
+  padding:10px;
+}
+
+form select, form input, form label{
+  padding: 10px;
+  margin: 3px 20px;
+}
+
+.forms h4{
+  margin-bottom: 0px ;
+  padding-left: 30px;
+}
+/***** FIN FORMS *****/
