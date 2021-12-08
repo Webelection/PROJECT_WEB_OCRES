@@ -17,7 +17,7 @@ const renderActiveShape = (props) => {
 
     return (
         <g>
-            <text font-size="1.3vw" fontWeight="bold" x={cx} y={cy} dy={8} textAnchor="middle" fill={fill}>
+            <text font-size="1.1vw" fontWeight="bold" x={cx} y={cy} dy={8} textAnchor="middle" fill={fill}>
                 {payload.candi}
             </text>
             <Sector
