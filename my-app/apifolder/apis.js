@@ -107,10 +107,8 @@ myRouter.route('/tweets')
     //POST
     .post(function (req, res) {
         //Nous utilisons le schema tweetSchema pour écrire dans la DB
-        var tweet = new Tweet();
+        var tweet = new Tweet(req.body);
         // Nous récupérons les données reçues pour les ajouter à l'objet Tweet
-        tweet.photo = req.body.photo,
-        tweet.url = req.body.url
         tweet.save(function(err){
             if(err){
                 red.send(err);
@@ -238,12 +236,8 @@ myRouter.route('/progs')
 //POST
 .post(function (req, res) {
     //Nous utilisons le schema progSchema pour écrire dans la DB
-    var prog = new Prog();
+    var prog = new Prog(req.body);
     // Nous récupérons les données reçues pour les ajouter à l'objet Prog
-    prog.num = req.body.num,
-    prog.candi = req.body.candi,
-    prog.parti = req.body.parti,
-    prog.texte = req.body.texte
     prog.save(function(err){
         if(err){
             red.send(err);
@@ -308,12 +302,8 @@ myRouter.route('/sond')
 //POST
 .post(function (req, res) {
     //Nous utilisons le schema sondSchema pour écrire dans la DB
-    var sond = new Sond();
+    var sond = new Sond(req.body);
     // Nous récupérons les données reçues pour les ajouter à l'objet Sond
-    sond.date = req.body.date,
-    sond.num = req.body.num,
-    sond.candi = req.body.candi,
-    sond.col = req.body.col
     sond.save(function(err){
         if(err){
             red.send(err);
@@ -378,10 +368,8 @@ myRouter.route('/focus')
 //POST
 .post(function (req, res) {
     //Nous utilisons le schema focusSchema pour écrire dans la DB
-    var focus = new Focus();
+    var focus = new Focus(req.body);
     // Nous récupérons les données reçues pour les ajouter à l'objet Focus
-    focus.candi = req.body.candi,
-    focus.textes = req.body.textes
     focus.save(function(err){
         if(err){
             red.send(err);
