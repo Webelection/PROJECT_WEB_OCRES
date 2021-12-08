@@ -611,7 +611,7 @@ main > * > * > h2{
   color: #F1AD6E;
   font-weight: 300;
   position: absolute;
-  font-size: 1.1vw;
+  font-size: 1vw;
   left: 15%;
   top: 45px;
 }
