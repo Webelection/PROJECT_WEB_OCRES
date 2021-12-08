@@ -5,6 +5,7 @@ import Tweet from './Tweet';
 import Candi from './Candi';
 import Prog from './Prog';
 import Sond from './Sond';
+import Focus from './Focus';
 
 class Widget extends React.Component {
     constructor (props) {
@@ -67,6 +68,7 @@ class DashBoard extends React.Component {
                 <div className="conteneur-flexible-ligne">
                     <Widget type='1'>
                         <h2>Focus sur un candidat</h2>
+                        <Focus />
                     </Widget>
                 </div>
 

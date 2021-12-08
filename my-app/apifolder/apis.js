@@ -73,6 +73,18 @@ var sondSchema = mongoose.Schema({
 
 var Sond = mongoose.model('Sond', sondSchema);
 
+//FOCUS
+
+var focusSchema = mongoose.Schema({
+    candi: String,
+    textes: [{
+        date: String,
+        texte: String
+    }]
+});
+
+var Focus = mongoose.model('Focus', focusSchema);
+
 myRouter.route('/')
     // all permet de prendre en charge toutes les méthodes. 
     .all(function (req, res) {
@@ -349,6 +361,72 @@ myRouter.route('/sond/:sond_id')
             res.send(err);
         }
         res.send({message: 'Bravo, sondage supprimé'});
+    });
+});
+
+
+// Création de ma route (/focus).  
+myRouter.route('/focus')
+// J'implémente les méthodes GET, et POST
+// GET
+.get(function (req, res) {
+    //Utilisation de notre schéma focusSchema pour interroger la base
+    Focus.find(function(err, focus){
+        if (err){
+            res.send(err);
+        }
+        res.json(focus);
+    });
+})
+//POST
+.post(function (req, res) {
+    //Nous utilisons le schema focusSchema pour écrire dans la DB
+    var focus = new Focus();
+    // Nous récupérons les données reçues pour les ajouter à l'objet Focus
+    focus.candi = req.body.candi,
+    focus.textes = req.body.textes
+    focus.save(function(err){
+        if(err){
+            red.send(err);
+        }
+        res.send({message : 'Bravo, le focus est maintenant stocké en base de données'});
+    });
+});
+
+myRouter.route('/focus/:focus_id')
+// J'implémente les méthodes GET, PUT, et DELETE pour un focus donné
+//GET
+.get(function (req, res) {
+    Focus.findById(req.params.focus_id, function(err, focus){
+        if(err){
+            res.send(err);
+        }
+        res.json(focus);
+    });
+})
+//PUT
+.put(function (req, res) {
+    Focus.findById(req.params.focus_id, function(err, focus){
+        if(err){
+            res.send(err);
+        }
+        focus.candi = req.body.candi,
+        focus.textes = req.body.textes
+        focus.save(function(err,){
+            if(err){
+                res.send(err);
+            }
+            res.send({message: 'Bravo, données mise à jour'});
+        });
+    });
+})
+//DELETE
+.delete(function (req, res) {
+    Focus.remove({_id: req.params.focus_id}, function(err, focus){
+        if(err){
+            res.send(err);
+        }
+        res.send({message: 'Bravo, focusage supprimé'});
     });
 });
 
