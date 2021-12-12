@@ -1,23 +1,14 @@
-# Projet de fin de semestre
+# Comment lancer le projet WebElection ?
 
-A lire impérativement avant de commencer quoi que ce soit, ce sont les règles que vous devrez appliquer tout au long du semestre:
+I- Installation des packages
+1) Fork le repository et l'ouvrir dans Visual Studio Code
+2) Clic droit sur my-app --> "Ouvrir dans le terminal intégré"
+3) Dans le terminal écrire "npm install" puis entrer
 
-<p align="center">
- <a href="https://gitlab.com/Adrien_Kourganoff/instructions_web_ocres_ing4/-/blob/master/README.md">Règles pour le semestre</a>
-</p>
+II- Lancement du backend
+4) Une fois l'installation finie, clic droit sur apifolder --> "Ouvrir dans le terminal intégré"
+5) Dans le terminal écrire "node apis.js" puis entrer
 
-## Introduction
-
-Ce repo git contient deux repertoires. L'un concerne la partie backend et l'autre la partie frontend.
-
-Les deux repertoires ont été initialisé pour vous aider à démarrer le projet dans les meilleures conditions.
-
-Chacun de ces repertoires contient un README.md qui vous pouvez vous approprier. Nous vous encourageons à le faire en y mettant toute les informations nécessaires à la compréhension de votre projet
-
-## Instructions
-
-Les instructions sont à retrouver dans le pdf instruction.pdf.
-
-**Le non respect de ces instructions entraînera des pertes de points alors prenez le temps de tout lire et de poser des questions si vous ne comprenez pas**
-
-Pour rappel, la probabilité de recevoir une réponse à un mail envoyé quelques heures avant le rendu est très proche de 0.
+III- Lancement du frontend
+6) Clic droit sur my-app --> "Ouvrir dans le terminal intégré"
+7) Dans le terminal écrire "npm start" puis entrer
